@@ -22,7 +22,7 @@
   ],
   "ignorePatterns": ["dist"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "@typescript-eslint", "compat"],
+  "plugins": ["react", "@typescript-eslint", "compat", "react-refresh"],
   "root": true,
   "overrides": [
     {
