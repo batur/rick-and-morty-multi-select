@@ -1,0 +1,152 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "plugin:tailwindcss/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "standard-with-typescript",
+    "plugin:compat/recommended",
+    "prettier",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "ignorePatterns": ["dist"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "@typescript-eslint", "compat"],
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+      "extends": "standard-with-typescript",
+      "rules": {
+        "semi": "off",
+        "@typescript-eslint/semi": "off",
+        "@typescript-eslint/consistent-type-assertions": [
+          "error",
+          {
+            "assertionStyle": "as",
+            "objectLiteralTypeAssertions": "allow"
+          }
+        ],
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "@typescript-eslint/member-delimiter-style": "off",
+        "tailwindcss/no-custom-classname": "off",
+        "quote-props": "off",
+        "@typescript-eslint/explicit-function-return-type": "warn",
+        "indent": "off",
+        "@typescript-eslint/indent": [
+          "error",
+          2,
+          {
+            "SwitchCase": 1,
+            "ignoredNodes": ["TSTypeParameterInstantiation"]
+          }
+        ]
+      }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "tsconfigRootDir": ".",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+    "semi": "off",
+    "@typescript-eslint/semi": "off",
+    "no-restricted-syntax": ["error", "FunctionExpression", "FunctionDeclaration"],
+    "no-console": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "react/no-unescaped-entities": [
+      "error",
+      {
+        "forbid": [
+          {
+            "char": ">",
+            "alternatives": ["&gt;"]
+          },
+          {
+            "char": "}",
+            "alternatives": ["&#125;"]
+          },
+          {
+            "char": "\"",
+            "alternatives": ["&quot;", "&ldquo;", "&#34;", "&rdquo;", "&#x22;"]
+          },
+          {
+            "char": "'",
+            "alternatives": ["&apos;", "&rsquo;", "&#39;", "&#x27;"]
+          },
+          {
+            "char": "{",
+            "alternatives": ["&#123;"]
+          }
+        ]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true,
+          "orderImportKind": "asc"
+        },
+        "groups": ["builtin", "external", "internal", "parent", ["index", "sibling"], "object"],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "@**",
+            "group": "internal"
+          },
+          {
+            "pattern": "@env",
+            "group": "internal"
+          },
+          {
+            "pattern": "react",
+            "group": "builtin"
+          },
+          {
+            "pattern": "react-native",
+            "group": "builtin"
+          }
+        ],
+        "distinctGroup": false,
+        "pathGroupsExcludedImportTypes": []
+      }
+    ],
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowArray": false,
+        "allowArrowFunction": false,
+        "allowAnonymousClass": false,
+        "allowAnonymousFunction": false,
+        "allowCallExpression": true,
+        "allowNew": false,
+        "allowLiteral": false,
+        "allowObject": true
+      }
+    ]
+  }
+}
