@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=18.x"
+  },
   "scripts": {
     "dev": "vite --port 1923",
     "build": "tsc && vite build",
@@ -23,6 +26,7 @@
     "axios": "1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-select": "^5.8.0",
     "rickmortyapi": "^2.3.0",
     "zod": "^3.22.4"
   },
