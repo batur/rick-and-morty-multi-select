@@ -14,7 +14,7 @@ interface UseGetCharactersProps extends QueryOptions<Info<Character[]>, Error> {
 
 const useGetCharacters = ({ params, ...props }: UseGetCharactersProps = {}) => {
   return useQuery({
-    queryKey: ['characters', params],
+    queryKey: ['characters', params, ...Object.values(params ?? {})],
     queryFn: async () => (await getCharacters(params)).data,
     placeholderData: keepPreviousData,
     ...props
