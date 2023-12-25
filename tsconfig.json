@@ -22,7 +22,9 @@
 
     /* Alias */
     "baseUrl": "./src",
-    "paths": {}
+    "paths": {
+      "@hooks": ["./src/hooks"]
+    }
   },
   "include": ["src", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
