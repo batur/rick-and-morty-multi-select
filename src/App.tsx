@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import Select from 'react-select';
 
-import { api } from './hooks';
+import { api, useDebounce } from './hooks';
 
 const App: React.FC = () => {
   const [search, setSearch] = React.useState('');
+  const { debouncedValue, isLoading: isDebounceLoading } = useDebounce(search, 500);
 
-  const { data } = api.useGetCharacters();
+  const { data, isLoading } = api.useGetCharacters({
+    params: {
+      name: debouncedValue
+    }
+  });
+
+  const resetSearchValue = React.useCallback(() => {
+    setTimeout(() => {
+      setSearch('');
+    }, 500);
+  }, []);
+
+  const handleLabelWithSearchValue = useCallback(
+    (label: string) => {
+      return label.toLocaleLowerCase().replace(search.toLocaleLowerCase(), `<strong>${search}</strong>`);
+    },
+    [search]
+  );
 
   return (
     <>
@@ -26,17 +44,18 @@ const App: React.FC = () => {
             components={{
               Option: (option) => {
                 return (
-                  <div {...option} className='mb-2 w-full'>
+                  <div key={option.data.value} className='mb-2 w-full'>
                     <button
                       className='flex w-full flex-1 flex-row items-center text-sm text-gray-500'
                       onClick={() => {
                         option.selectOption(option.data);
+                        resetSearchValue();
                       }}>
                       <img src={option.data.img} alt={option.data.label} className='mr-2 h-8 w-8 rounded-sm' />
                       <p
                         className='capitalize'
                         dangerouslySetInnerHTML={{
-                          __html: option.data.label.toLocaleLowerCase().replace(search.toLocaleLowerCase(), `<strong>${search}</strong>`)
+                          __html: handleLabelWithSearchValue(option.data.label)
                         }}
                       />
                     </button>
@@ -44,6 +63,8 @@ const App: React.FC = () => {
                 );
               }
             }}
+            isLoading={isLoading || isDebounceLoading}
+            isClearable
             isMulti
             isSearchable
           />
