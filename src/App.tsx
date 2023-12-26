@@ -15,8 +15,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <main className='p-4'>
-        <section className='flex w-full justify-center md:px-12 lg:max-w-[480px]'>
+      <main className='p-2'>
+        <section className='flex w-[428px] justify-center pr-5'>
           <CustomSelect search={search} data={data?.results ?? []} isLoading={isLoading || isDebounceLoading} setSearch={setSearch} />
         </section>
       </main>

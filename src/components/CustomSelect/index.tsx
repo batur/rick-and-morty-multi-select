@@ -31,13 +31,13 @@ const CustomSelect: React.FC<Props> = ({ search, data, isLoading, setSearch }) =
           ...provided,
           borderWidth: 1,
           borderColor: '#94A3B8',
-          borderRadius: '0.375rem'
+          borderRadius: '1rem'
         }),
         multiValue: (provided) => ({
           ...provided,
           color: '#334155',
           backgroundColor: '#E2E8F0',
-          borderRadius: '0.375rem',
+          borderRadius: '1rem',
           padding: '0.1rem 0.325rem',
           display: 'flex',
           alignItems: 'center',
@@ -68,9 +68,11 @@ const CustomSelect: React.FC<Props> = ({ search, data, isLoading, setSearch }) =
         }),
         control: (provided) => ({
           ...provided,
-          borderRadius: '0.75rem',
+          borderRadius: '1rem',
           borderWidth: 1,
-          borderColor: '#94A3B8'
+          height: '2.75rem',
+          borderColor: '#94A3B8',
+          width: '100%'
         }),
         indicatorSeparator: () => ({
           display: 'none'
