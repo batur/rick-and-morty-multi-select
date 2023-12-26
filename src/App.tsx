@@ -1,13 +1,13 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import Select from 'react-select';
+import { type Character } from 'rickmortyapi';
 
 import { api, useDebounce } from './hooks';
 
 const App: React.FC = () => {
-  const [search, setSearch] = React.useState('');
+  const [search, setSearch] = useState('');
   const { debouncedValue, isLoading: isDebounceLoading } = useDebounce(search, 500);
-
   const { data, isLoading } = api.useGetCharacters({
     params: {
       name: debouncedValue
@@ -33,9 +33,9 @@ const App: React.FC = () => {
         <section className='flex w-full justify-center md:px-12 lg:max-w-[480px]'>
           <Select
             className='w-full'
-            options={data?.results?.map((character) => ({
-              label: character.name,
+            options={data?.results?.map((character: Character) => ({
               value: character.id,
+              label: character.name,
               img: character.image
             }))}
             onInputChange={(value) => {
@@ -44,7 +44,7 @@ const App: React.FC = () => {
             components={{
               Option: (option) => {
                 return (
-                  <div key={option.data.value} className='mb-2 w-full'>
+                  <div key={option.data.value} className={`mb-2 w-full ${option.isFocused && 'bg-slate-100'}`}>
                     <button
                       className='flex w-full flex-1 flex-row items-center text-sm text-gray-500'
                       onClick={() => {
