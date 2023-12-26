@@ -36,7 +36,7 @@ const App: React.FC = () => {
                       <p
                         className='capitalize'
                         dangerouslySetInnerHTML={{
-                          __html: option.data.label.toLowerCase().replace(search.toLowerCase(), `<strong>${search}</strong>`)
+                          __html: option.data.label.toLocaleUpperCase().replace(search.toLocaleUpperCase(), `<strong>${search}</strong>`)
                         }}
                       />
                     </button>
