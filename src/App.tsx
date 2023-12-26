@@ -46,9 +46,6 @@ const App: React.FC = () => {
             }}
             isMulti
             isSearchable
-            onChange={(value) => {
-              console.log(value);
-            }}
           />
         </section>
       </main>
