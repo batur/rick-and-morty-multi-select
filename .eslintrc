@@ -59,7 +59,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module",
     "tsconfigRootDir": ".",
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json", "./tsconfig.node.json"]
   },
   "rules": {
     "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
