@@ -15,6 +15,7 @@ const CustomSelect: React.FC<Props> = ({ search, data, isLoading, setSearch }) =
     setTimeout(() => {
       setSearch('');
     }, 500);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleLabelWithSearchValue = useCallback(
@@ -131,8 +132,7 @@ const CustomSelect: React.FC<Props> = ({ search, data, isLoading, setSearch }) =
           );
         }
       }}
-      menuIsOpen={process.env.NODE_ENV === 'development' ? true : undefined}
-      isLoading={true}
+      isLoading={isLoading}
       isMulti
       isClearable={false}
       isSearchable

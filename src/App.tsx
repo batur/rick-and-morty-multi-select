@@ -4,7 +4,7 @@ import { CustomSelect } from './components';
 import { api, useDebounce } from './hooks';
 
 const App: React.FC = () => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState<string>('');
   const { debouncedValue, isLoading: isDebounceLoading } = useDebounce(search, 500);
 
   const { data, isLoading } = api.useGetCharacters({
