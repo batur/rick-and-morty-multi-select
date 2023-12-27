@@ -20,9 +20,9 @@
     "plugin:import/warnings",
     "plugin:import/typescript"
   ],
-  "ignorePatterns": ["dist"],
+  "ignorePatterns": ["dist", "tailwind.config.ts"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "@typescript-eslint", "compat"],
+  "plugins": ["react", "@typescript-eslint", "compat", "react-refresh"],
   "root": true,
   "overrides": [
     {
@@ -59,7 +59,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module",
     "tsconfigRootDir": ".",
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json", "./tsconfig.node.json"]
   },
   "rules": {
     "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
