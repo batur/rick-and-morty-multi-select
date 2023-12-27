@@ -16,4 +16,4 @@ yarn dev
 
 And voilà! You can start to develop your custom React-Select component.
 
-Also project deployed to [Vercel](https://vercel.com/) and you can see the live demo [here](https://react-select-custom-example.vercel.app/).
+Also project deployed to [Vercel](https://vercel.com/) and you can see the live demo [here](https://rick-and-morty-multi-select-one.vercel.app/).
