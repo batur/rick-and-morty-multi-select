@@ -20,7 +20,7 @@
     "plugin:import/warnings",
     "plugin:import/typescript"
   ],
-  "ignorePatterns": ["dist"],
+  "ignorePatterns": ["dist", "tailwind.config.ts"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["react", "@typescript-eslint", "compat", "react-refresh"],
   "root": true,

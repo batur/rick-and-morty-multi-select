@@ -29,69 +29,18 @@ const CustomSelect: React.FC<Props> = ({ search, data, isLoading, setSearch }) =
 
   return (
     <Select
-      styles={{
-        menuList: (provided) => ({
-          ...provided,
-          borderWidth: 1,
-          borderColor: '#94A3B8',
-          borderRadius: '.75rem',
-          display: 'flex',
-          flexDirection: 'column',
-          padding: 0
-        }),
-        multiValue: (provided) => ({
-          ...provided,
-          color: '#334155',
-          backgroundColor: '#E2E8F0',
-          borderRadius: '.5rem',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: 18,
-          padding: '0.12rem 0.5rem',
-          marginRight: 4
-        }),
-        multiValueRemove: (provided) => ({
-          ...provided,
-          backgroundColor: '#94A3B8',
-          marginLeft: 2,
-          width: 22,
-          height: 22,
-          color: '#F8FAFC',
-          borderRadius: '0.25rem'
-        }),
-        input: (provided) => ({
-          ...provided,
-          marginLeft: 1,
-          marginBottom: 3
-        }),
-        container: (provided) => ({
-          ...provided,
-          width: '100%'
-        }),
-        valueContainer: (provided) => ({
-          ...provided,
-          padding: '0.215rem'
-        }),
-        control: (provided) => ({
-          ...provided,
-          borderRadius: '1rem',
-          borderWidth: 1,
-          borderColor: '#94A3B8',
-          width: '100%'
-        }),
-        indicatorSeparator: () => ({
-          display: 'none'
-        }),
-        indicatorsContainer: (provided) => ({
-          ...provided,
-          paddingRight: 0
-        }),
-        menu: (provided) => ({
-          ...provided,
-          borderRadius: '.75rem',
-          zIndex: 9999
-        })
+      classNames={{
+        menuList: () => '!p-0 flex flex-col border-slate-400 border-1 !rounded-md',
+        multiValue: () => '!mr-1 flex items-center justify-center !rounded-lg !bg-slate-200 !pl-2 pr-2  text-lg text-slate-700',
+        multiValueRemove: () => 'flex items-center justify-center ml-[1px] h-6 w-6 !rounded-[0.25rem] bg-slate-400 text-slate-50',
+        input: () => 'ml-1 mb-[3px] ',
+        container: () => 'w-full',
+        valueContainer: () => ' flex flex-row justify-centet items-start !pl-1',
+        control: () => 'w-full !rounded-xl border-[1px] border-slate-700',
+        indicatorSeparator: () => 'hidden',
+        indicatorsContainer: () => 'pr-0',
+        menu: () => '!rounded-2xl',
+        dropdownIndicator: () => 'f'
       }}
       className='flex w-full'
       options={data.map((character: Character) => ({
@@ -109,7 +58,7 @@ const CustomSelect: React.FC<Props> = ({ search, data, isLoading, setSearch }) =
           return (
             <button
               className={cn(
-                'flex w-full flex-1 flex-row items-center text-sm text-gray-500 pt-[5px] pb-[6px]  px-2.5 border-b border-slate-300',
+                'fill- flex w-full flex-1 flex-row items-center text-sm text-gray-500 pt-1.5 pb-1.5 px-2.5 border-b border-slate-300',
                 option.isFocused && 'bg-slate-100'
               )}
               key={option.data.value}
@@ -136,7 +85,7 @@ const CustomSelect: React.FC<Props> = ({ search, data, isLoading, setSearch }) =
         DropdownIndicator: (params) => {
           return (
             <button {...params} className='mr-5 aspect-square'>
-              <Icons.ArrowDown />
+              <Icons.ArrowDown width={21} height={21} className='fill-slate-700' />
             </button>
           );
         }
