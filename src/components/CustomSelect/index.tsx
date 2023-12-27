@@ -4,6 +4,8 @@ import cn from 'classnames';
 import Select from 'react-select';
 import { type Character } from 'rickmortyapi';
 
+import Icons from '../Icons';
+
 interface Props {
   search: string;
   data: Character[];
@@ -128,6 +130,13 @@ const CustomSelect: React.FC<Props> = ({ search, data, isLoading, setSearch }) =
                 />
                 <p>{`${option.data.episodeCount} Episodes`}</p>
               </div>
+            </button>
+          );
+        },
+        DropdownIndicator: (params) => {
+          return (
+            <button {...params} className='mr-5 aspect-square'>
+              <Icons.ArrowDown />
             </button>
           );
         }
