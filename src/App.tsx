@@ -16,7 +16,7 @@ const App: React.FC = () => {
   return (
     <>
       <main className='p-2'>
-        <section className='flex w-[428px] justify-center pr-5'>
+        <section className='flex justify-center'>
           <CustomSelect search={search} data={data?.results ?? []} isLoading={isLoading || isDebounceLoading} setSearch={setSearch} />
         </section>
       </main>
